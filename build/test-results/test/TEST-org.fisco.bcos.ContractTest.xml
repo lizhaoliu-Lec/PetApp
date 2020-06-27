@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.fisco.bcos.ContractTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-06-24T19:20:56" hostname="lizhaoliu-virtual-machine" time="1.716">
+  <properties/>
+  <testcase name="deployAndCallHelloWorld" classname="org.fisco.bcos.ContractTest" time="1.716"/>
+  <system-out><![CDATA[2020-06-25 03:20:55,935 [Test worker] INFO  [o.s.b.t.context.SpringBootTestContextBootstrapper] AbstractTestContextBootstrapper.java:308 - Neither @ContextConfiguration nor @ContextHierarchy found for test class [org.fisco.bcos.ContractTest], using SpringBootContextLoader
+2020-06-25 03:20:55,946 [Test worker] INFO  [o.s.test.context.support.AbstractContextLoader] AbstractContextLoader.java:264 - Could not detect default resource locations for test class [org.fisco.bcos.ContractTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2020-06-25 03:20:55,977 [Test worker] INFO  [o.s.b.t.context.SpringBootTestContextBootstrapper] AbstractTestContextBootstrapper.java:248 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2020-06-25 03:20:55,985 [Test worker] INFO  [o.s.b.t.context.SpringBootTestContextBootstrapper] AbstractTestContextBootstrapper.java:177 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2543eaeb, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@4aa9c6f3, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@128ea1da, org.springframework.test.context.support.DirtiesContextTestExecutionListener@ff26b54, org.springframework.test.context.transaction.TransactionalTestExecutionListener@35dcccf3, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@31460ae5, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@56a1fd66, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4a95942d, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@19fd62d8, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@18ed5220, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@41fed696]
+2020-06-25 03:20:56,439 [Test worker] INFO  [org.fisco.bcos.web3j.utils.Async] Async.java:19 -  default set setExeutor , pool size is 50
+2020-06-25 03:20:56,441 [Test worker] INFO  [org.fisco.bcos.web3j.utils.Async] Async.java:81 -  set setExeutor because executor null, executor is java.util.concurrent.ThreadPoolExecutor@19e76bd0[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+2020-06-25 03:20:57,074 [nioEventLoopGroup-2-2] INFO  [org.fisco.bcos.channel.client.Service] Service.java:1388 - Receive block notify: {"blockNumber":1,"groupID":1}
+
+2020-06-25 03:20:57,108 [nioEventLoopGroup-2-1] INFO  [org.fisco.bcos.channel.client.Service] Service.java:1388 - Receive block notify: {"blockNumber":1,"groupID":1}
+
+HelloWorld address is: 0xfb4bf907c9a64f7b3a0a2afd901fee46b83606ca
+2020-06-25 03:20:57,626 [nioEventLoopGroup-2-2] INFO  [org.fisco.bcos.channel.client.Service] Service.java:1388 - Receive block notify: {"blockNumber":2,"groupID":1}
+
+2020-06-25 03:20:57,635 [nioEventLoopGroup-2-1] INFO  [org.fisco.bcos.channel.client.Service] Service.java:1388 - Receive block notify: {"blockNumber":2,"groupID":1}
+
+Hello, World!
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

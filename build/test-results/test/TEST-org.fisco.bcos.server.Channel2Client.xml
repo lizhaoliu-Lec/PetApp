@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.fisco.bcos.server.Channel2Client" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-06-24T19:20:45" hostname="lizhaoliu-virtual-machine" time="7.084">
+  <properties/>
+  <testcase name="channel2ClientTest" classname="org.fisco.bcos.server.Channel2Client" time="7.084"/>
+  <system-out><![CDATA[2020-06-25 03:20:45,731 [Test worker] INFO  [o.s.b.t.context.SpringBootTestContextBootstrapper] AbstractTestContextBootstrapper.java:308 - Neither @ContextConfiguration nor @ContextHierarchy found for test class [org.fisco.bcos.server.Channel2Client], using SpringBootContextLoader
+2020-06-25 03:20:45,735 [Test worker] INFO  [o.s.test.context.support.AbstractContextLoader] AbstractContextLoader.java:264 - Could not detect default resource locations for test class [org.fisco.bcos.server.Channel2Client]: no resource found for suffixes {-context.xml, Context.groovy}.
+2020-06-25 03:20:45,748 [Test worker] INFO  [o.s.b.t.context.SpringBootTestContextBootstrapper] AbstractTestContextBootstrapper.java:248 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2020-06-25 03:20:45,751 [Test worker] INFO  [o.s.b.t.context.SpringBootTestContextBootstrapper] AbstractTestContextBootstrapper.java:177 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@257c0dc6, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@4f861ff9, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@7e7ede58, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4a7ec3b1, org.springframework.test.context.transaction.TransactionalTestExecutionListener@fa9e505, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@702f5ade, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@78abc69d, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4474e172, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@435b534, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@ec6e6c6, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@287f56ad]
+3s ...
+2s ...
+1s ...
+start test
+===================================================================
+2020-06-25 03:20:50 request seq:bfd05d7c9d6f412d981ab054c4143727, Content:request seq:bfd05d7c9d6f412d981ab054c4143727
+2020-06-25 03:20:50,803 [Test worker] INFO  [org.fisco.bcos.channel.client.Service] Service.java:644 - msgid:bfd05d7c9d6f412d981ab054c4143727 type:48 topic:topic
+2020-06-25 03:20:50,807 [Test worker] INFO  [org.fisco.bcos.channel.client.Service] Service.java:682 - put msgid:bfd05d7c9d6f412d981ab054c4143727 into callback map
+2020-06-25 03:20:50,809 [Test worker] INFO  [org.fisco.bcos.channel.client.Service] Service.java:686 - timeoutms:5000
+2020-06-25 03:20:50response seq:bfd05d7c9d6f412d981ab054c4143727, ErrorCode:100, Content:null
+2020-06-25 03:20:52 request seq:45321e7834d6478382b30c30e5ebe877, Content:request seq:45321e7834d6478382b30c30e5ebe877
+2020-06-25 03:20:52,826 [Test worker] INFO  [org.fisco.bcos.channel.client.Service] Service.java:644 - msgid:45321e7834d6478382b30c30e5ebe877 type:48 topic:topic
+2020-06-25 03:20:52,828 [Test worker] INFO  [org.fisco.bcos.channel.client.Service] Service.java:682 - put msgid:45321e7834d6478382b30c30e5ebe877 into callback map
+2020-06-25 03:20:52,829 [Test worker] INFO  [org.fisco.bcos.channel.client.Service] Service.java:686 - timeoutms:5000
+2020-06-25 03:20:52response seq:45321e7834d6478382b30c30e5ebe877, ErrorCode:100, Content:null
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
