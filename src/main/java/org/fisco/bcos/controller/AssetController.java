@@ -2,6 +2,7 @@ package org.fisco.bcos.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import org.fisco.bcos.service.impl.AssetQueryService;
 import org.fisco.bcos.service.impl.AssetRegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +16,8 @@ import java.math.BigInteger;
 public class AssetController {
     @Autowired // must autowired, else bug
     private AssetRegisterService assetRegisterService;
+    @Autowired
+    private AssetQueryService assetQueryService;
 
     @RequestMapping(value = "/assetRegister", method = RequestMethod.POST)
     private JSONObject assetRegister(@RequestBody String input) throws Exception {
@@ -22,6 +25,13 @@ public class AssetController {
         String assetAccount = object.getString("asset_account");
         BigInteger amount = object.getBigInteger("amount");
         return assetRegisterService.register(assetAccount, amount);
+    }
+
+    @RequestMapping(value = "/assetQuery", method = RequestMethod.POST)
+    private JSONObject assetQuery(@RequestBody String input) throws Exception {
+        JSONObject object = JSON.parseObject(input);
+        String assetAccount = object.getString("asset_account");
+        return assetQueryService.query(assetAccount);
     }
 
 }
