@@ -36,7 +36,7 @@ public class User {
 
     public BigInteger getBalance(String _id) throws Exception {
         if (_id.equals("not exist"))
-            throw new Exception("account " + _id +" not exist" );
+            throw new Exception("account " + _id + " not exist");
         return new BigInteger("123456789");
     }
 
@@ -45,5 +45,12 @@ public class User {
             return Boolean.FALSE;
         else
             return Boolean.TRUE;
+    }
+
+    public Boolean isAdmin(String _id) {
+        if (_id.equals("admin"))
+            return Boolean.TRUE;
+        else
+            return Boolean.FALSE;
     }
 }
