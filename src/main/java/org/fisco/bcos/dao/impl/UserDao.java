@@ -1,10 +1,9 @@
 package org.fisco.bcos.dao.impl;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.fisco.bcos.blockService.UserService;
 import org.fisco.bcos.contract.User;
-import org.fisco.bcos.dao.intf.IUserLoginDao;
+import org.fisco.bcos.dao.intf.IUserDao;
 import org.fisco.bcos.global.Field;
 import org.fisco.bcos.web3j.tuples.generated.Tuple2;
 import org.fisco.bcos.web3j.tx.gas.StaticGasProvider;
@@ -12,11 +11,34 @@ import org.springframework.stereotype.Repository;
 
 import java.math.BigInteger;
 
-// 返回：状态码（0代表登录成功，1代表用户id或密码不正确），用户地址(状态码为1时无效)
 @Repository
-public class UserLoginDao implements IUserLoginDao {
+public class UserDao implements IUserDao {
     @Override
-    public JSONObject userLogin(String _id, String _pwd) throws Exception {
+    public JSONObject register(String _id, String _pwd) throws Exception {
+        UserService userService = UserService.getUserService();
+        JSONObject ret = new JSONObject();
+        String msg = "";
+        try {
+            User user = User.load(userService.loadAssetAddr(), userService.getWeb3j(), userService.getCredentials(), new StaticGasProvider(userService.getGasPrice(), userService.getGasLimit()));
+            BigInteger code = user.register(_id, _pwd);
+            if (code.compareTo(new BigInteger("0")) == 0) {
+                msg = String.format(" register successfully, id %s, password %s \n", _id, _pwd);
+            } else {
+                msg = String.format(" register fail, id %s already exist \n", _id);
+            }
+            System.out.println(msg);
+            ret.put(Field.MSG_KEY, msg);
+        } catch (Exception e) {
+            userService.getLogger().error(" userRegister exception, error message is {}", e.getMessage());
+            msg = String.format(" userRegister exception, error message is %s\n", e.getMessage());
+            System.out.println(msg);
+            ret.put(Field.MSG_KEY, msg);
+        }
+        return ret;
+    }
+
+    @Override
+    public JSONObject login(String _id, String _pwd) throws Exception {
         UserService userService = UserService.getUserService();
         JSONObject ret = new JSONObject();
         String msg = "";

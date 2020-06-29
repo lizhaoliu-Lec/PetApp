@@ -2,10 +2,7 @@ package org.fisco.bcos.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import org.fisco.bcos.dao.impl.AssetTransferDao;
-import org.fisco.bcos.service.impl.AssetQueryService;
-import org.fisco.bcos.service.impl.AssetRegisterService;
-import org.fisco.bcos.service.impl.AssetTransferService;
+import org.fisco.bcos.service.impl.AssetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,25 +14,21 @@ import java.math.BigInteger;
 @RestController
 public class AssetController {
     @Autowired // must autowired, else bug
-    private AssetRegisterService assetRegisterService;
-    @Autowired
-    private AssetQueryService assetQueryService;
-    @Autowired
-    private AssetTransferService assetTransferService;
+    private AssetService assetService;
 
     @RequestMapping(value = "/assetRegister", method = RequestMethod.POST)
     private JSONObject assetRegister(@RequestBody String input) throws Exception {
         JSONObject object = JSON.parseObject(input);
         String assetAccount = object.getString("asset_account");
         BigInteger amount = object.getBigInteger("amount");
-        return assetRegisterService.register(assetAccount, amount);
+        return assetService.register(assetAccount, amount);
     }
 
     @RequestMapping(value = "/assetQuery", method = RequestMethod.POST)
     private JSONObject assetQuery(@RequestBody String input) throws Exception {
         JSONObject object = JSON.parseObject(input);
         String assetAccount = object.getString("asset_account");
-        return assetQueryService.query(assetAccount);
+        return assetService.query(assetAccount);
     }
 
     @RequestMapping(value = "/assetTransfer", method = RequestMethod.POST)
@@ -44,7 +37,7 @@ public class AssetController {
         String fromAccount = object.getString("from_account");
         String toAccount = object.getString("to_account");
         BigInteger amount = object.getBigInteger("amount");
-        return assetTransferService.transfer(fromAccount, toAccount, amount);
+        return assetService.transfer(fromAccount, toAccount, amount);
     }
 
 }

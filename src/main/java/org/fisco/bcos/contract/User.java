@@ -33,4 +33,17 @@ public class User {
         else
             return new Tuple2<>(new BigInteger("0"), address);
     }
+
+    public BigInteger getBalance(String _id) throws Exception {
+        if (_id.equals("not exist"))
+            throw new Exception("account " + _id +" not exist" );
+        return new BigInteger("123456789");
+    }
+
+    public Boolean setBalance(String _id, BigInteger balance) {
+        if (_id.equals("not exist"))
+            return Boolean.FALSE;
+        else
+            return Boolean.TRUE;
+    }
 }
