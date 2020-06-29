@@ -1,6 +1,7 @@
 package org.fisco.bcos.blockService;
 
 import org.fisco.bcos.channel.client.Service;
+import org.fisco.bcos.contract.User;
 import org.fisco.bcos.web3j.crypto.Credentials;
 import org.fisco.bcos.web3j.crypto.Keys;
 import org.fisco.bcos.web3j.protocol.Web3j;
@@ -70,7 +71,7 @@ public class UserService {
         logger.debug(" web3j is " + web3j + " ,credentials is " + credentials);
 
         // TODO
-        // this.deployAssetAndRecordAddr();
+        this.deployAssetAndRecordAddr();
     }
 
     public Web3j getWeb3j() {
@@ -116,31 +117,31 @@ public class UserService {
 
     // TODO
     public String loadAssetAddr() throws Exception {
-//        // load Asset contact address from contract.properties
-//        Properties prop = new Properties();
-//        final Resource contractResource = new ClassPathResource("contract.properties");
-//        prop.load(contractResource.getInputStream());
-//
-//        String contractAddress = prop.getProperty("address");
-//        if (contractAddress == null || contractAddress.trim().equals("")) {
-//            throw new Exception(" load User contract address failed, please deploy it first. ");
-//        }
-//        logger.info(" load User address from contract.properties, address is {}", contractAddress);
-//        return contractAddress;
-        return "1234567";
+        // load Asset contact address from contract.properties
+        Properties prop = new Properties();
+        final Resource contractResource = new ClassPathResource("contract.properties");
+        prop.load(contractResource.getInputStream());
+
+        String contractAddress = prop.getProperty("address");
+        if (contractAddress == null || contractAddress.trim().equals("")) {
+            throw new Exception(" load User contract address failed, please deploy it first. ");
+        }
+        logger.info(" load User address from contract.properties, address is {}", contractAddress);
+        return contractAddress;
+//        return "1234567";
     }
 
     // TODO
     public void deployAssetAndRecordAddr() {
-//        try {
-//            User user = User.deploy(web3j, credentials, new StaticGasProvider(gasPrice, gasLimit)).send();
-//            System.out.println(" deploy user success, contract address is " + user.getContractAddress());
-//            recordAssetAddr(user.getContractAddress());
-//        } catch (Exception e) {
-//            // TODO Auto-generated catch block
-//            // e.printStackTrace();
-//            System.out.println(" deploy user contract failed, error message is  " + e.getMessage());
-//        }
+        try {
+            User user = User.deploy(web3j, credentials, new StaticGasProvider(gasPrice, gasLimit)).send();
+            System.out.println(" deploy user success, contract address is " + user.getContractAddress());
+            recordAssetAddr(user.getContractAddress());
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            // e.printStackTrace();
+            System.out.println(" deploy user contract failed, error message is  " + e.getMessage());
+        }
     }
 
     public void recordAssetAddr(String address) throws IOException {

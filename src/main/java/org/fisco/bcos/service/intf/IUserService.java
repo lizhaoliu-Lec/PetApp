@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import java.math.BigInteger;
 
 public interface IUserService {
-    JSONObject register(String _id, String _pwd) throws Exception;
+    JSONObject register(String _id, String _pwd, Boolean _is_admin) throws Exception;
 
     JSONObject login(String _id, String _pwd) throws Exception;
 

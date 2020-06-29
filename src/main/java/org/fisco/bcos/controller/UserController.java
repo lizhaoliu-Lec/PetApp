@@ -20,7 +20,10 @@ public class UserController {
         JSONObject object = JSONObject.parseObject(input);
         String _id = object.getString("account");
         String _pwd = object.getString("password");
-        return userService.register(_id, _pwd);
+        Boolean _is_admin = object.getBoolean("isAdmin");
+        if (_is_admin == null)
+            _is_admin = Boolean.FALSE;
+        return userService.register(_id, _pwd, _is_admin);
     }
 
     @RequestMapping(value = "/userLogin", method = RequestMethod.POST)

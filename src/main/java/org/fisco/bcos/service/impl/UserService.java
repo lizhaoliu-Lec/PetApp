@@ -14,8 +14,8 @@ public class UserService implements IUserService {
     UserDao userDao;
 
     @Override
-    public JSONObject register(String _id, String _pwd) throws Exception {
-        return userDao.register(_id, _pwd);
+    public JSONObject register(String _id, String _pwd, Boolean _is_admin) throws Exception {
+        return userDao.register(_id, _pwd, _is_admin);
     }
 
     @Override
