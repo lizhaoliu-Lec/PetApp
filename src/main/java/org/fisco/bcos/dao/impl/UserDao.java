@@ -6,7 +6,6 @@ import org.fisco.bcos.contract.User;
 import org.fisco.bcos.dao.intf.IUserDao;
 import org.fisco.bcos.global.Field;
 import org.fisco.bcos.web3j.protocol.core.methods.response.TransactionReceipt;
-import org.fisco.bcos.web3j.tuples.generated.Tuple2;
 import org.fisco.bcos.web3j.tx.gas.StaticGasProvider;
 import org.springframework.stereotype.Repository;
 
@@ -15,6 +14,10 @@ import java.util.List;
 
 @Repository
 public class UserDao implements IUserDao {
+    public UserDao() throws Exception {
+        UserService.getUserService();
+    }
+
     @Override
     public JSONObject register(String _id, String _pwd, Boolean _is_admin) throws Exception {
         UserService userService = UserService.getUserService();
