@@ -128,7 +128,6 @@ public class UserService {
         }
         logger.info(" load User address from user.contract.properties, address is {}", contractAddress);
         return contractAddress;
-//        return "1234567";
     }
 
     // TODO

@@ -9,6 +9,7 @@ import org.fisco.bcos.contract.Order;
 import org.fisco.bcos.dao.intf.IMarketDao;
 import org.fisco.bcos.global.Field;
 import org.fisco.bcos.web3j.protocol.core.methods.response.TransactionReceipt;
+import org.fisco.bcos.web3j.tuples.generated.Tuple1;
 import org.fisco.bcos.web3j.tuples.generated.Tuple7;
 import org.fisco.bcos.web3j.tx.gas.StaticGasProvider;
 import org.springframework.stereotype.Repository;
@@ -21,18 +22,19 @@ public class MarketDao implements IMarketDao {
     // 1. 先部署`User`, 然后部署`Market`和`Order`
     // 2. 在`Market`中调用`setUserAddress` 和`setOrderAddress`, 传入合约地址
     // 3. 同理在`Order`中调用`setMarketAddress`
+    // 4. must call send, else bug
     public MarketDao() throws Exception {
         // 1
-        MarketService marketService = MarketService.getMarketService();
         UserService userService = UserService.getUserService();
+        MarketService marketService = MarketService.getMarketService();
         OrderService orderService = OrderService.getOrderService();
         // 2
         Market market = Market.load(marketService.loadAssetAddr(), marketService.getWeb3j(), marketService.getCredentials(), new StaticGasProvider(marketService.getGasPrice(), marketService.getGasLimit()));
-        market.setUserAddress(userService.loadAssetAddr());
-        market.setOrderAddress(orderService.loadAssetAddr());
+        market.setUserAddress(userService.loadAssetAddr()).send();
+        market.setOrderAddress(orderService.loadAssetAddr()).send();
         // 3
         Order order = Order.load(orderService.loadAssetAddr(), orderService.getWeb3j(), orderService.getCredentials(), new StaticGasProvider(marketService.getGasPrice(), marketService.getGasLimit()));
-        order.setMarketAddress(marketService.loadAssetAddr());
+        order.setMarketAddress(marketService.loadAssetAddr()).send();
     }
 
     private Market getMarket(MarketService marketService) throws Exception {
