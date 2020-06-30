@@ -20,7 +20,7 @@ public class MarketController {
     private JSONObject getPetByIndex(@RequestBody String input) throws Exception {
         JSONObject object = JSONObject.parseObject(input);
         String _id = object.getString("account");
-        BigInteger _index = object.getBigInteger("index");
+        BigInteger _index = object.getBigInteger("pet_index");
         return marketService.getPetByIndex(_id, _index);
     }
 
